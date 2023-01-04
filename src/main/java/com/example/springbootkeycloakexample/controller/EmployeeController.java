@@ -20,8 +20,8 @@ public class EmployeeController {
     private EmployeeService service;
 
     // this method can be accessed by user whose role is user
-    @GetMapping("/{employeeId}")
     @RolesAllowed("user")
+    @GetMapping("/{employeeId}")
     public ResponseEntity<Employee> getEmployee(@PathVariable int employeeId) {
         return ResponseEntity.ok(service.getEmployee(employeeId));
     }
